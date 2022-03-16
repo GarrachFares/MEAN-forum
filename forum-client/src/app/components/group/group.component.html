@@ -1,0 +1,46 @@
+
+    
+<div class="container">
+    <div class="panel panel-white profile-widget">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="image-container bg2" style="background:url(http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg)">  
+                    <img [src]="imgUrl" class="avatar" alt="avatar"> 
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="details">
+                    <h4>{{ name }} <i class="fa fa-sheild"></i></h4>
+                    
+                    <div>{{ description }}</div>
+                <br>
+                    <div class="mg-top-10">
+                        <a *ngIf= "loggedUserIsAdmin" class="btn btn-default" [routerLink]="['./edit']">edit group</a>
+                        <a *ngIf= "!loggedUserIsMember" (click)="joinGroup()"  class="btn btn-success">join group</a>
+                        <a *ngIf= "loggedUserIsMember" (click)="leaveGroup()" class="btn btn-danger">leave group</a>
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+    <div class="mx-3" *ngIf="loggedUserIsMember">
+        <form #f = "ngForm" (submit)="sub(f)">
+        <div class="mb-3 form-group">
+            <label for="exampleFormControlTextarea1" class="form-label">something on your mind? add a post</label>
+            <textarea placeholder="somthing on ur mind ?" ngModel #newpost="ngModel" name="newpost" class="form-control" id="newpost" rows="3"></textarea>
+        </div>
+    
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="submit">Add Post</button>
+            
+          </div>
+        </form>
+    </div>
+    <div *ngFor="let post of posts">
+        <app-post (deleted)="removePostFromArray($event)" [post]="post" ></app-post>
+    </div>
+        
+
+</div>
+

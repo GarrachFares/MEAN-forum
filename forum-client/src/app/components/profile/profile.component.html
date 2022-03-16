@@ -1,0 +1,45 @@
+
+    
+<div class="container">
+    <div class="panel panel-white profile-widget">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="image-container bg2" style="background:url(http://www.bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg)">  
+                    <img [src]="imgUrl" class="avatar" alt="avatar"> 
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="details">
+                    <h4>{{ name }} <i class="fa fa-sheild"></i></h4>
+                    <div>Works at Bootdey.com</div>
+                    <div>Attended University of Bootdey</div>
+                    <div>Lives in Medellin, Colombia</div>
+                    <div class="mg-top-10">
+                        <a href="#" class="btn btn-default">About Kevin</a>
+                        <a *ngIf= "loggedUserIsOwner" routerLink="edit" class="btn btn-success">edit Profile</a>
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+    <div class="mx-3" *ngIf="loggedUserIsOwner">
+        <form #f = "ngForm" (submit)="sub(f)">
+        <div class="mb-3 form-group">
+            <label for="exampleFormControlTextarea1" class="form-label">something on your mind? add a post</label>
+            <textarea placeholder="somthing on ur mind ?" ngModel #newpost="ngModel" name="newpost" class="form-control" id="newpost" rows="3"></textarea>
+        </div>
+    
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="submit">Add Post</button>
+            
+          </div>
+        </form>
+    </div>
+    <div  *ngFor="let post of posts" >
+        <app-post (deleted)="removePostFromArray($event)" [content] = "post['content']" [userName]= "name" [userImg]= "imgUrl" [postId] = "post['_id']" [userId]="post['user']"></app-post>
+    </div>
+        
+
+</div>
+

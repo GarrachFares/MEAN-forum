@@ -1,0 +1,39 @@
+
+  <div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-6">
+            <h1>Register</h1>
+            
+            <form #f = "ngForm" (ngSubmit)="submit(f)">
+                <div class="mb-3 form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input ngModel #name="ngModel" name = "name" type="text" class="form-control" id="name" >
+                  </div>
+                <div class="mb-3 form-group">
+                  <label for="emailadress" class="form-label">Email address</label>
+                  <input ngModel #email="ngModel" name = "email" type="email" class="form-control" id="emailadress" >
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3 form-group">
+                  <label for="password" class="form-label">Password</label>
+                  <input ngModel #password="ngModel" name="password" type="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3">
+                    <button type="submit"  class="btn btn-primary">Register</button><br>
+                 </div>
+               
+               
+                 <div class="mb-3" *ngIf="invalidLogin">
+                  <div class="alert alert-danger">
+                      {{errorMessage}}
+                  </div>
+               </div>
+                <p class="form-text">already have an acount ?</p>
+                <a routerLink="/login" class="form-text"> login </a>
+            </form>
+            
+            
+      </div>
+      
+    </div>
+  </div>

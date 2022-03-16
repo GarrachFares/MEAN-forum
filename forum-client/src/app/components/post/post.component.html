@@ -1,0 +1,37 @@
+<div class="container posts-content">
+    <div class="row">
+        <div class="col-lg">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="media mb-3">
+                  <img [src]="userImg" class="d-block ui-w-40 rounded-circle" alt="" [routerLink]="'/profile/'+userId">
+                  <div class="media-body ml-3">
+                    {{userName}}
+                    <div class="text-muted small">3 days ago</div>
+                  </div>
+                </div>
+            
+                <p>
+                {{content}}  
+                </p>
+                <!-- <a href="javascript:void(0)" class="ui-rect ui-bg-cover" style="background-image: url('https://bootdey.com/img/Content/avatar/avatar3.png');"></a>
+                -->
+                </div>
+              <div class="card-footer">
+                <a href="javascript:void(0)" class="d-inline-block text-muted ">
+                    <small> <strong>123</strong> Likes </small>
+                </a>
+                <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
+                    <small><strong>12</strong> Comments</small>
+                </a>
+                <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
+                  <small class="align-middle">Repost</small>
+                </a>
+                <a *ngIf= "canDelete" (click)="deletePost()" class="btn btn-danger">delete</a>
+              </div>
+
+            </div>
+        </div>
+       
+    </div>
+</div>

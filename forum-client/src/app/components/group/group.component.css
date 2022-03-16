@@ -1,0 +1,34 @@
+body{margin-top:20px;
+    background:#eee;
+    }
+    
+    .profile-widget {
+      position: relative;
+    }
+    .profile-widget .image-container {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 190px 0 10px;
+    }
+    .profile-widget .image-container .profile-background {
+      width: 100%;
+      height: auto;
+    }
+    .profile-widget .image-container .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto -60px;
+      display: block;
+    }
+    .profile-widget .details {
+      padding: 50px 15px 15px;
+      text-align: center;
+    }
+    /* End Component: Profile Widget */
+    /********************************************************************
+    *********************************************************************
+    *********************************************************************/
+    /* Component: Mini Profile Widget */
+   
