@@ -1,17 +1,19 @@
-<div class="py-5">
-    <button class="btn btn-primary form-control" [routerLink]="'/group/add'"> add group</button>
-</div>
-<h5>discover groups</h5>
-<ol class="list-group list-group-numbered groups-list">
-    <div *ngFor="let group of groups">
-        <li  class="list-group-item d-flex justify-content-between align-items-start" [routerLink]= "'/group/'+group['_id']" >
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">{{group['name']}}</div>
-              {{group['description']}}
-            </div>
-            <span class="badge bg-primary rounded-pill">{{group['membersNumber']}} members</span>
-        </li>
+<div class="container">
+    <div class="py-5">
+        <button class="btn btn-primary form-control" [routerLink]="'/group/add'"> add group</button>
     </div>
-    
-    
-</ol>
+    <h5>discover groups</h5>
+    <ol class="list-group list-group-numbered groups-list">
+        <div *ngFor="let group of groups">
+            <li  class="list-group-item d-flex justify-content-between align-items-start" [routerLink]= "'/group/'+group['_id']" >
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">{{group['name']}}</div>
+                  {{group['description']}}
+                </div>
+                <span class="badge bg-primary rounded-pill">{{group['membersNumber']}} members</span>
+            </li>
+        </div>
+        
+        
+    </ol>
+</div>

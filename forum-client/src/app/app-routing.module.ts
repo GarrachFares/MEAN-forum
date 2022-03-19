@@ -9,6 +9,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { AuthGuard } from './guards/auth.guard';
 import { ProfileEditFormComponent } from './components/profile-edit-form/profile-edit-form.component';
 import { GroupEditFormComponent } from './components/group-edit-form/group-edit-form.component';
+import { MessagingPageComponent } from './components/messaging-page/messaging-page.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'group/:id',component:GroupComponent,canActivate:[AuthGuard]} ,
   {path: 'group/:id/edit',component:GroupEditFormComponent,canActivate:[AuthGuard]} ,
   {path: 'groups',component:GroupsComponent,canActivate:[AuthGuard]} ,
+  {path: 'messages',component:MessagingPageComponent,canActivate:[AuthGuard]} ,
 ];
 
 @NgModule({

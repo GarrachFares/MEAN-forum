@@ -15,9 +15,18 @@ import { ProfileEditFormComponent } from './components/profile-edit-form/profile
 import { GroupsComponent } from './components/groups/groups.component';
 import { GroupEditFormComponent } from './components/group-edit-form/group-edit-form.component';
 import { JwtModule } from "@auth0/angular-jwt";
+import { MessagingPageComponent } from './components/messaging-page/messaging-page.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 export function tokenGetter() {
   return localStorage.getItem('Token')
+}
+
+const config: SocketIoConfig = {
+	url: 'http://localhost:4000', // socket server url;
+	options: {
+		transports: ['websocket']
+	}
 }
 
 @NgModule({
@@ -33,6 +42,7 @@ export function tokenGetter() {
     ProfileEditFormComponent,
     GroupsComponent,
     GroupEditFormComponent,
+    MessagingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +58,7 @@ export function tokenGetter() {
         //disallowedRoutes: ["http://example.com/examplebadroute/"],
       },
     }),
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent]
